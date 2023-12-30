@@ -571,6 +571,19 @@ function shiftArray(arr, n) {
   return arr.slice(index).concat(arr.slice(0, index));
 }
 
+const digitNames = {
+  one: 1,
+  two: 2,
+  three: 3,
+  four: 4,
+  five: 5,
+  six: 6,
+  seven: 7,
+  eight: 8,
+  nine: 9,
+  zero: 0,
+};
+
 /**
  * Sorts digit names.
  *
@@ -584,8 +597,8 @@ function shiftArray(arr, n) {
  *   sortDigitNamesByNumericOrder([ 'nine','eight','nine','eight' ]) => [ 'eight','eight','nine','nine']
  *   sortDigitNamesByNumericOrder([ 'one','one','one','zero' ]) => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  return arr.sort((a, b) => digitNames[a] - digitNames[b]);
 }
 
 /**
