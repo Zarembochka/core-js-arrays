@@ -427,6 +427,13 @@ function getIdentityMatrix(n) {
   return result.map((element, index) => element.fill(1, index, index + 1));
 }
 
+function getIndexOrNull(element, index) {
+  if (element % 2 === 1) {
+    return index;
+  }
+  return null;
+}
+
 /**
  * Returns an array containing indices of odd elements in the input array.
  *
@@ -438,8 +445,11 @@ function getIdentityMatrix(n) {
  *    getIndicesOfOddNumbers([2, 4, 6, 8, 10]) => []
  *    getIndicesOfOddNumbers([11, 22, 33, 44, 55]) => [0, 2, 4]
  */
-function getIndicesOfOddNumbers(/* numbers */) {
-  throw new Error('Not implemented');
+function getIndicesOfOddNumbers(numbers) {
+  const result = numbers.map((element, index) =>
+    getIndexOrNull(element, index)
+  );
+  return result.filter((element) => element !== null);
 }
 
 /**
